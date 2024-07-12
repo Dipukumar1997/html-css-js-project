@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Class Example</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li id="task">This is a task</li>
+    </ul>
+    <button id="toggleButton">Complete/Uncomplete Task</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const task = document.getElementById('task');
+            const toggleButton = document.getElementById('toggleButton');
+
+            toggleButton.addEventListener('click', function () {
+                console.log("run")
+                task.classList.toggle('completed');
+            });
+        });
+
+    </script>
+</body>
+
+</html>
