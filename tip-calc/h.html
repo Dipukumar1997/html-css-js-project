@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <form id="tipForm">
+        <label for="billAmount">Bill Amount: </label>
+        <input type="number" id="billAmount" name="bill" required>
+        <br><br>
+
+        <label for="tipPercentage">Tip Percentage: </label>
+        <input type="number" id="tipPercentage" name="tip" required>
+        <br><br>
+
+        <input type="button" value="Calculate Tip" onclick="calculateTip()">
+    </form>
+    <h2>Results</h2>
+    <p id="tipAmount"></p>
+    <p id="totalAmount"></p>
+
+    <script>
+        function calculateTip() {
+            let billAmount = document.getElementById('billAmount').value;
+            let tipPercentage = document.getElementById('tipPercentage').value;
+
+            let tipAmount = (billAmount * tipPercentage / 100).toFixed(2);
+            let totalAmount = (parseFloat(billAmount) + parseFloat(tipAmount)).toFixed(2);
+
+            document.getElementById('tipAmount').innerText = "Tip Amount: ₹	" + tipAmount;
+            document.getElementById('totalAmount').innerText = "Total Amount: ₹	" + totalAmount;
+        }
+    </script>
+</body>
+</html>

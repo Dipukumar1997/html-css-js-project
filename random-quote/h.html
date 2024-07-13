@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+       
+</head>
+<body>
+    <div id="quoteBox">
+        <div id="quote">Click the button to get a quote</div>
+        <div id="author"></div>
+        <button id="newQuoteBtn" onclick="generateQuote()">New Quote</button>
+    </div>
+
+    <script>
+        async function generateQuote() {
+            try {
+                const pp = await fetch('https://api.quotable.io/random');
+                const data = await pp.json();
+                document.getElementById('quote').textContent = data.content;
+                document.getElementById('author').textContent = `- ${data.author}`;
+            } catch (error) {
+                document.getElementById('quote').textContent = 'An error occurred. Please try again.';
+                document.getElementById('author').textContent = '';
+                console.error('Error fetching quote:', error);
+            }
+        }
+    </script>
+</body>
+</html>
